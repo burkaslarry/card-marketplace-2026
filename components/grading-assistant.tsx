@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Cpu,
@@ -173,10 +174,13 @@ function GradingResultPanel({
       {imageUrl && (
         <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a12]">
           <div className="relative h-40 w-full sm:h-44">
-            <img
+            <Image
               src={imageUrl}
               alt={fileName || "Your card"}
-              className="h-full w-full object-contain object-center"
+              fill
+              unoptimized
+              className="object-contain object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           {fileName ? (
@@ -444,10 +448,13 @@ export function GradingAssistant() {
                     {/* Card preview + scan overlay */}
                     <div className="relative h-44 w-full overflow-hidden rounded-xl border border-white/[0.06] bg-[#0a0a12] sm:h-48">
                       {imagePreviewUrl ? (
-                        <img
+                        <Image
                           src={imagePreviewUrl}
                           alt={gradingFileName || "Analyzing"}
-                          className="absolute inset-0 z-0 h-full w-full object-contain object-center"
+                          fill
+                          unoptimized
+                          className="z-0 object-contain object-center"
+                          sizes="(max-width: 768px) 100vw, 50vw"
                         />
                       ) : (
                         <div className="absolute inset-0 z-0 flex items-center justify-center bg-white/[0.03] text-white/10">

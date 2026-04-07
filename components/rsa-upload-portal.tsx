@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Upload,
@@ -169,10 +170,13 @@ function VerificationResultPanel({
         <div className="relative flex flex-col gap-3">
           <div className="relative flex h-48 w-full items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-[#0a0a12] sm:h-52">
             {imageUrl ? (
-              <img
+              <Image
                 src={imageUrl}
                 alt={fileName || "Uploaded card"}
-                className="relative z-0 h-full w-full object-contain object-center"
+                fill
+                unoptimized
+                className="z-0 object-contain object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             ) : (
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white/20">
@@ -537,10 +541,13 @@ export function RSAUploadPortal() {
                 >
                   {imagePreviewUrl && (
                     <div className="relative h-36 w-full max-w-[220px] overflow-hidden rounded-xl border border-white/10 bg-[#0a0a12] shadow-lg sm:h-40 sm:max-w-[260px]">
-                      <img
+                      <Image
                         src={imagePreviewUrl}
-                        alt={fileName}
-                        className="h-full w-full object-contain object-center"
+                        alt={fileName || "Preview"}
+                        fill
+                        unoptimized
+                        className="object-contain object-center"
+                        sizes="260px"
                       />
                       <div className="pointer-events-none absolute inset-0 overflow-hidden">
                         <div className="scan-line absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
