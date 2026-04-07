@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import {
@@ -11,21 +10,9 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  weight: ["400", "500", "600"],
-});
+/** Google Fonts via <link> — avoids next/font + fraction.js resolution issues on Vercel CI. */
+const googleFontsHref =
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap";
 
 export const metadata: Metadata = {
   title: "Elite Trader | Premium Card Trading Platform",
@@ -51,10 +38,7 @@ function NavBar() {
             <Shield className="h-4 w-4 text-gold" />
           </div>
           <div className="min-w-0 flex flex-col leading-none">
-            <span
-              className="truncate text-xs font-bold tracking-wide text-white sm:text-sm"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
+            <span className="font-display truncate text-xs font-bold tracking-wide text-white sm:text-sm">
               ELITE TRADER
             </span>
             <span className="hidden text-[10px] tracking-widest text-gold/70 uppercase sm:block">
@@ -145,14 +129,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={cn(
-          inter.variable,
-          spaceGrotesk.variable,
-          jetbrainsMono.variable,
-          "min-h-screen bg-[#080812] font-sans antialiased"
-        )}
-      >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="stylesheet" href={googleFontsHref} />
+      </head>
+      <body className={cn("min-h-screen bg-[#080812] font-sans antialiased")}>
         <NavBar />
         {children}
       </body>

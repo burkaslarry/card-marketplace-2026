@@ -88,8 +88,8 @@ function GradeDisplay({
       >
         <div className="text-center">
           <div
-            className="text-2xl font-black leading-none"
-            style={{ color, fontFamily: "var(--font-space-grotesk)" }}
+            className="font-display text-2xl font-black leading-none"
+            style={{ color }}
           >
             {min === max ? max : `${min}–${max}`}
           </div>
@@ -361,10 +361,7 @@ export function GradingAssistant() {
                 AI Grading Assistant
               </span>
             </div>
-            <h2
-              className="text-xl font-bold text-white sm:text-2xl md:text-3xl"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
+            <h2 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
               Pre-Grading Intelligence
             </h2>
             <p className="mt-1.5 max-w-md text-sm text-white/40">

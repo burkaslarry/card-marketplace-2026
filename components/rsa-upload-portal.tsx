@@ -451,8 +451,7 @@ export function RSAUploadPortal() {
             </span>
           </div>
           <h1
-            className="mb-3 text-2xl font-bold leading-snug text-white sm:text-3xl md:text-4xl lg:text-5xl"
-            style={{ fontFamily: "var(--font-space-grotesk)" }}
+            className="font-display mb-3 text-2xl font-bold leading-snug text-white sm:text-3xl md:text-4xl lg:text-5xl"
           >
             Authenticate first.{" "}
             <span className="text-gold-gradient">Trade with confidence.</span>

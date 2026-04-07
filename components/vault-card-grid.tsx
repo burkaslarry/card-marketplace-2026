@@ -95,9 +95,8 @@ function CardTile({
         {/* Card name in image */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center">
           <div
-            className="text-sm font-bold leading-tight text-white/80 sm:text-base"
+            className="font-display text-sm font-bold leading-tight text-white/80 sm:text-base"
             style={{
-              fontFamily: "var(--font-space-grotesk)",
               textShadow: "0 2px 12px rgba(0,0,0,0.8)",
             }}
           >
@@ -406,10 +405,7 @@ export function VaultCardGrid() {
                 Secure Vault
               </span>
             </div>
-            <h2
-              className="text-xl font-bold text-white sm:text-2xl md:text-3xl"
-              style={{ fontFamily: "var(--font-space-grotesk)" }}
-            >
+            <h2 className="font-display text-xl font-bold text-white sm:text-2xl md:text-3xl">
               Auction Grid
             </h2>
             <p className="mt-1.5 max-w-md text-sm leading-relaxed text-white/40">
