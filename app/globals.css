@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #D4A017;
+  --gold-light: #F5C518;
+  --bg-primary: #080812;
+  --bg-surface: #0E0E1A;
+  --bg-surface-2: #12121E;
+  --border: #1E1E30;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: #080812;
+  color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0E0E1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a3e;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4A017;
+}
+
+/* Gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4A017 0%, #F5C518 50%, #A07A10 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover glow */
+.card-hover-glow {
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.card-hover-glow:hover {
+  box-shadow: 0 0 30px rgba(212, 160, 23, 0.12), 0 8px 32px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Verified badge glow */
+.verified-glow {
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+/* Risk badge glow */
+.risk-glow {
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+/* Elite gold border */
+.border-gold-glow {
+  border-color: rgba(212, 160, 23, 0.5);
+  box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.15), inset 0 0 20px rgba(212, 160, 23, 0.04);
+}
+
+/* Ticker container — pause on hover */
+.ticker-track:hover {
+  animation-play-state: paused !important;
+}
+
+/* Upload zone pulse border */
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(212, 160, 23, 0.3); }
+  50% { border-color: rgba(212, 160, 23, 0.7); }
+}
+.upload-zone-active {
+  animation: border-pulse 1.5s ease-in-out infinite;
+}
+
+/* Scan overlay line */
+@keyframes scan {
+  0%   { top: 0%; opacity: 1; }
+  90%  { opacity: 0.6; }
+  100% { top: 100%; opacity: 0; }
+}
+.scan-line {
+  animation: scan 2s linear infinite;
+}
+
+/* Number font feature */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus ring override */
+*:focus-visible {
+  outline: 2px solid rgba(212, 160, 23, 0.6);
+  outline-offset: 2px;
+}
+
+/* Horizontal scroll strips (market pills, filters) */
+.scroll-touch-x {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  touch-action: pan-x;
+}
