@@ -3,8 +3,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import {
   Shield,
-  TrendingUp,
-  BarChart2,
   Bell,
   Settings,
   ChevronDown,
@@ -46,50 +44,6 @@ function NavBar() {
             </span>
           </div>
         </div>
-
-        {/* Mobile: icon strip */}
-        <nav
-          aria-label="Quick sections"
-          className="flex shrink-0 items-center gap-0.5 md:hidden"
-        >
-          {[
-            { icon: TrendingUp, label: "Market" },
-            { icon: Shield, label: "Vault" },
-            { icon: BarChart2, label: "Portfolio" },
-          ].map(({ icon: Icon, label }) => (
-            <button
-              key={label}
-              type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-lg text-white/50 transition-colors hover:bg-white/[0.06] hover:text-white active:scale-95"
-              aria-label={label}
-            >
-              <Icon className="h-4 w-4" />
-            </button>
-          ))}
-        </nav>
-
-        {/* Desktop center nav */}
-        <nav className="hidden items-center gap-1 md:flex">
-          {[
-            { icon: TrendingUp, label: "Market", active: true },
-            { icon: Shield, label: "Vault" },
-            { icon: BarChart2, label: "Portfolio" },
-          ].map(({ icon: Icon, label, active }) => (
-            <button
-              type="button"
-              key={label}
-              className={cn(
-                "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm font-medium transition-colors",
-                active
-                  ? "bg-white/[0.07] text-white"
-                  : "text-white/40 hover:text-white/70"
-              )}
-            >
-              <Icon className="h-3.5 w-3.5" />
-              {label}
-            </button>
-          ))}
-        </nav>
 
         {/* Right actions */}
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
