@@ -402,10 +402,6 @@ export function PitchExperience() {
             </div>
             <p className="text-xs text-white/45">{t.maryPain}</p>
             <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-3">
-                <p className="text-[10px] text-emerald-300">Trust Badge</p>
-                <p className="mt-1 text-sm font-semibold text-white">RSA Verified</p>
-              </div>
               <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
                 <p className="text-[10px] text-white/35">Fair Price Range</p>
                 <p className="mt-1 text-sm font-semibold text-white">$1,720 - $1,860</p>
